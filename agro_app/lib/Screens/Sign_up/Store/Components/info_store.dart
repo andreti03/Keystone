@@ -1,34 +1,33 @@
 import 'dart:developer';
-import 'package:agro_app/Elements/alr_hav_acc.dart';
+import 'package:agro_app/Screens/Login/Store/login_screen.dart';
+import 'package:agro_app/Screens/Sign_up/Store/sign_up3.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/rounded_input.dart';
-import 'package:agro_app/Screens/Login/Store/login_screen.dart';
-import 'package:agro_app/Screens/Sign_up/Store/sign_up2.dart';
+import 'package:agro_app/Elements/alr_hav_acc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'background.dart';
 
-class Body extends StatelessWidget {
-  Body({Key? key}) : super(key: key);
+class InfoStore1 extends StatelessWidget {
+  InfoStore1({Key? key}) : super(key: key);
 
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
-  final nameController = TextEditingController();
-  final bdateController = TextEditingController();
+  final stnameController = TextEditingController();
+  final deptController = TextEditingController();
   final numbController = TextEditingController();
-  final surenameController = TextEditingController();
+  final horController = TextEditingController();
+  final muncController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    String email = '';
-    String password = '';
-    String nombre = '';
-    String apellido = '';
-    String bdate = '';
+    String munc = '';
+    String stname = '';
+    String horario = '';
+    String dept = '';
     String telnum = '';
 
     return Background(
@@ -43,7 +42,7 @@ class Body extends StatelessWidget {
             ],
           ),
           const Text(
-            'Información',
+            'Información de',
             style: TextStyle(
               fontSize: 35.0,
               fontWeight: FontWeight.bold,
@@ -51,7 +50,7 @@ class Body extends StatelessWidget {
             ),
           ),
           const Text(
-            'personal',
+            'tu negocio',
             style: TextStyle(
               fontSize: 35.0,
               fontWeight: FontWeight.bold,
@@ -60,27 +59,19 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.05),
           RoundedInput(
-            textController: nameController,
-            icon: Icons.contacts_rounded,
-            hintText: 'Nombres',
+            textController: stnameController,
+            icon: Icons.store,
+            hintText: 'Nombre de la tienda',
             onChanged: (value) {
-              nombre = value;
+              stname = value;
             },
           ),
           RoundedInput(
-            textController: surenameController,
-            icon: Icons.contacts_rounded,
-            hintText: 'Apellidos',
+            textController: horController,
+            icon: Icons.access_time_filled,
+            hintText: 'Horario de atencion',
             onChanged: (value) {
-              apellido = value;
-            },
-          ),
-          RoundedInput(
-            textController: bdateController,
-            icon: Icons.cake,
-            hintText: 'Fecha de nacimiento',
-            onChanged: (value) {
-              password = value;
+              horario = value;
             },
           ),
           RoundedInput(
@@ -88,37 +79,35 @@ class Body extends StatelessWidget {
             icon: Icons.phone_iphone_outlined,
             hintText: 'Telefono',
             onChanged: (value) {
-              password = value;
+              telnum = value;
             },
           ),
           RoundedInput(
-            textController: emailController,
-            icon: Icons.person_sharp,
-            hintText: 'Correo',
+            textController: deptController,
+            icon: Icons.location_on,
+            hintText: 'Departamento',
             onChanged: (value) {
-              password = value;
+              dept = value;
             },
           ),
           RoundedInput(
-            textController: passController,
-            icon: Icons.lock,
-            hintText: 'Contraseña',
+            textController: muncController,
+            icon: Icons.location_on,
+            hintText: 'Municipio',
             onChanged: (value) {
-              password = value;
+              munc = value;
             },
-            obText: true,
           ),
           SizedBox(height: size.height * 0.05),
           RoundedButton(
             text: 'Continuar',
             press: () {
-              log(password);
-              log(email);
-              log(nombre);
-              log(apellido);
-              log(bdate);
+              log(stname);
+              log(horario);
+              log(dept);
               log(telnum);
-              Get.to(() => const SignUpScreen2V());
+              log(munc);
+              Get.to(() => const SignUpScreen3V());
             },
             pd: 2,
           ),

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:agro_app/Elements/alr_hav_acc.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/rounded_input.dart';
+import 'package:agro_app/Screens/Login/Client/login_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
@@ -109,7 +110,7 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.05),
           RoundedButton(
-            text: 'Ingresar',
+            text: 'Registrarse',
             press: () {
               log(password);
               log(email);
@@ -123,8 +124,10 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.05),
           AlrHavAcc(
+            login: false,
             press: () {
               log('Registarse COMPRADOR');
+              Get.off(() => const LoginScreenC());
             },
           ),
         ],

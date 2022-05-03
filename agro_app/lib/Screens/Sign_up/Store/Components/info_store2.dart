@@ -1,17 +1,16 @@
 import 'dart:developer';
-import 'package:agro_app/Elements/alr_hav_acc.dart';
+import 'package:agro_app/Screens/Login/Store/login_screen.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/rounded_input.dart';
-import 'package:agro_app/Screens/Login/Store/login_screen.dart';
-import 'package:agro_app/Screens/Sign_up/Store/sign_up2.dart';
+import 'package:agro_app/Elements/alr_hav_acc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'background.dart';
 
-class Body extends StatelessWidget {
-  Body({Key? key}) : super(key: key);
+class InfoStore2 extends StatelessWidget {
+  InfoStore2({Key? key}) : super(key: key);
 
   final emailController = TextEditingController();
   final passController = TextEditingController();
@@ -43,7 +42,7 @@ class Body extends StatelessWidget {
             ],
           ),
           const Text(
-            'Información',
+            'Ya casi',
             style: TextStyle(
               fontSize: 35.0,
               fontWeight: FontWeight.bold,
@@ -51,7 +50,7 @@ class Body extends StatelessWidget {
             ),
           ),
           const Text(
-            'personal',
+            'terminas ...',
             style: TextStyle(
               fontSize: 35.0,
               fontWeight: FontWeight.bold,
@@ -106,7 +105,6 @@ class Body extends StatelessWidget {
             onChanged: (value) {
               password = value;
             },
-            obText: true,
           ),
           SizedBox(height: size.height * 0.05),
           RoundedButton(
@@ -118,7 +116,7 @@ class Body extends StatelessWidget {
               log(apellido);
               log(bdate);
               log(telnum);
-              Get.to(() => const SignUpScreen2V());
+            
             },
             pd: 2,
           ),
