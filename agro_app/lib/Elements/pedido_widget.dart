@@ -1,6 +1,5 @@
 import 'package:agro_app/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class PedidoButton extends StatelessWidget {
   final String pedidoID;
@@ -27,14 +26,14 @@ class PedidoButton extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           height: size.height * 0.15,
         width: size.width * 0.8,
           decoration: BoxDecoration(
               border: Border.all(
                 color: color,
               ),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+              borderRadius: const BorderRadius.all( Radius.circular(20))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

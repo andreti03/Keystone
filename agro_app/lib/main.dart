@@ -1,12 +1,12 @@
 import 'package:agro_app/Screens/Home/Client/home.dart';
 import 'package:agro_app/Screens/Login/Client/login_screen.dart';
 import 'package:agro_app/Screens/Login/Store/login_screen.dart';
-import 'package:agro_app/Screens/Pedidos/Client/login_screen.dart';
 import 'package:agro_app/Screens/Welcome/welcome_screen.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Screens/Orders/Client/login_screen.dart';
 import 'Screens/Sign_up/Client/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up2.dart';
@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
       ),
       home: const ViewsScreens(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

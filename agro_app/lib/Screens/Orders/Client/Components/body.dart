@@ -1,11 +1,8 @@
+import 'package:agro_app/Elements/pedido_widget.dart';
+import 'package:agro_app/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 // ignore: unused_import
 import 'package:get/get.dart';
-
-import '../../../../Elements/pedidoWidget.dart';
-import '../../../../constants.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
@@ -20,22 +17,20 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
                   onTap: () {
                   },
-                  child: Container(
-                    child: Text(
-                      "Freshop",
+                  child: const Text(
+                    "Freshop",
 
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: kPrimaryColor, //font color
-                          fontWeight: FontWeight.bold),
-                    ),
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: kPrimaryColor, //font color
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
 
@@ -43,7 +38,7 @@ class Body extends StatelessWidget {
                   onTap: () {
 
                   },
-                  child: Icon(
+                  child: const Icon(
                     CupertinoIcons.info,
                     color: kPrimaryColor,
                   ),
@@ -56,10 +51,9 @@ class Body extends StatelessWidget {
             height: size.height * 0.05,
           ),
 
-          Center(
+          const Center(
             child: Text(
               "Tus Pedidos",
-
               style: TextStyle(
                   fontSize: 20,
                   color: kPrimaryColor, //font color
@@ -84,12 +78,10 @@ class Body extends StatelessWidget {
                       direccion: 'Calle 72 # 26-64',
                     ));
               }, separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(height: 10,);
+                return const SizedBox(height: 10,);
             },
             ),
           ),
-
-
         ],
       ),
     );
