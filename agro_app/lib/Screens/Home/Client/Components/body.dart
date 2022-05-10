@@ -47,7 +47,34 @@ class Body extends StatelessWidget {
           ],
         ),
         ScrollMenu( listaC: categories, listaP: press,),
-        const ProductCard(pname: 'Papa Pastusa', sname: 'Julian Castro', peso: 1, price: 2600)
+        const ProductCard(
+          pname: 'Papa Pastusa',
+          img: 'assets/Images/dilema-papa.jpg', 
+          sname: 'Julian Castro', 
+          peso: 1, 
+          price: 2600
+        ),
+        const ProductCard(
+          pname: 'Aguacate',
+          img: 'assets/Images/Aguacate.jpg', 
+          sname: 'Julian Castro', 
+          peso: 1, 
+          price: 2600
+        ),
+        const ProductCard(
+          pname: 'Huevos',
+          img: 'assets/Images/Huevo.jpg', 
+          sname: 'Julian Castro', 
+          peso: 1, 
+          price: 2600
+        ),
+        const ProductCard(
+          pname: 'Naranjas',
+          img: 'assets/Images/Naranjas.jpg', 
+          sname: 'Julian Castro', 
+          peso: 1, 
+          price: 2600
+        ),
       ],
     );
   }

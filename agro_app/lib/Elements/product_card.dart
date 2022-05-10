@@ -4,12 +4,13 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  final String pname, sname;
+  final String pname, sname, img;
   final int price, peso;
   const ProductCard(
       {Key? key,
       required this.pname,
       required this.sname,
+      required this.img,
       required this.peso,
       required this.price})
       : super(key: key);
@@ -35,7 +36,7 @@ class ProductCard extends StatelessWidget {
                 child: SizedBox(
                   width: size.width*0.4,
                   height: size.height*0.13,
-                  child: Image.asset('assets/Images/dilema-papa.jpg', 
+                  child: Image.asset(img, 
                   fit: BoxFit.fill,
                   
                   ),
