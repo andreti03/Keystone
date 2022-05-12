@@ -9,6 +9,7 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
+import 'package:postgres/postgres.dart';
 import 'background.dart';
 
 class Body extends StatelessWidget {
@@ -81,7 +82,7 @@ class Body extends StatelessWidget {
             icon: Icons.cake,
             hintText: 'Fecha de nacimiento',
             onChanged: (value) {
-              password = value;
+              bdate = value;
             },
           ),
           RoundedInput(
@@ -89,7 +90,7 @@ class Body extends StatelessWidget {
             icon: Icons.phone_iphone_outlined,
             hintText: 'Telefono',
             onChanged: (value) {
-              password = value;
+              telnum = value;
             },
           ),
           RoundedInput(
@@ -97,7 +98,7 @@ class Body extends StatelessWidget {
             icon: Icons.person_sharp,
             hintText: 'Correo',
             onChanged: (value) {
-              password = value;
+              email = value;
             },
           ),
           RoundedInput(
@@ -112,13 +113,13 @@ class Body extends StatelessWidget {
           RoundedButton(
             text: 'Registrarse',
             press: () {
-              log(password);
-              log(email);
               log(nombre);
               log(apellido);
               log(bdate);
               log(telnum);
-            
+              log(email);
+              log(password);
+              subir_datos(nombre, apellido, bdate, telnum,email,password);
             },
             pd: 2,
           ),
@@ -133,5 +134,22 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+  }
+  Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
+    var connection = PostgreSQLConnection(
+        "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
+        5432,
+        "bff4spr7rvdolrbjs6ix",
+        username: "u1gnj6p7agoidy9oejy4",
+        password: "txhGYsajW3lbCBjMUCax");
+    await connection.open();
+    var res = await connection.query("SELECT count(*) from cliente");
+    var id = res.first.cast<int>()[0];
+    await connection.query(
+        "insert into cliente values (@id, @nom, @ape, @ced, @tel, @fec, @dep, @ciu, @cor, @pas)",
+      substitutionValues: {"id":id+1, "nom":nombre, "ape":apellido, "ced":123, "tel":telnum,
+        "fec":bdate, "dep":"departamento", "ciu":"ciudad", "cor":email, "pas":password
+      });
+    await connection.close();
   }
 }
