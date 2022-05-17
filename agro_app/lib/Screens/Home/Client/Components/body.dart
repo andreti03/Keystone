@@ -9,12 +9,19 @@ class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
   
   final schController = TextEditingController();
-  final categories = ['Todo','Frutas','Verduras','Huevos y lacteos'];
+  final categories = ['Todo','Frutas','Verduras','Huevos y lacteos','Tuberculos'];
   final press = [
     (){log('Todo');}, 
     (){log('Frutas');},
     (){log('Verduras');},
-    (){log('Huevos y Lacteos');}
+    (){log('Huevos y Lacteos');},
+    (){log('Tuberculos');}
+    ];
+  final prodnames = ['Papa Pastusa','Aguacate','Huevos'];
+  final asimg = [
+    'assets/Images/dilema-papa.jpg',
+    'assets/Images/Aguacate.jpg',
+    'assets/Images/Huevo.jpg',
     ];
 
   @override
@@ -47,33 +54,19 @@ class Body extends StatelessWidget {
           ],
         ),
         ScrollMenu( listaC: categories, listaP: press,),
-        const ProductCard(
-          pname: 'Papa Pastusa',
-          img: 'assets/Images/dilema-papa.jpg', 
-          sname: 'Julian Castro', 
-          peso: 1, 
-          price: 2600
-        ),
-        const ProductCard(
-          pname: 'Aguacate',
-          img: 'assets/Images/Aguacate.jpg', 
-          sname: 'Julian Castro', 
-          peso: 1, 
-          price: 2600
-        ),
-        const ProductCard(
-          pname: 'Huevos',
-          img: 'assets/Images/Huevo.jpg', 
-          sname: 'Julian Castro', 
-          peso: 1, 
-          price: 2600
-        ),
-        const ProductCard(
-          pname: 'Naranjas',
-          img: 'assets/Images/Naranjas.jpg', 
-          sname: 'Julian Castro', 
-          peso: 1, 
-          price: 2600
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: List.generate(
+            prodnames.length,
+            (index) => ProductCard(
+              pname: prodnames[index] , 
+              sname: 'Julian Castro', 
+              img: asimg[index], 
+              peso: 1, 
+              price: 2600),
+              ),
+          ),
         ),
       ],
     );

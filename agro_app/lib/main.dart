@@ -1,12 +1,17 @@
+import 'package:agro_app/Screens/Adding/addfrutas.dart';
+import 'package:agro_app/Screens/Adding/addhyl.dart';
+import 'package:agro_app/Screens/Adding/addverduras.dart';
+import 'package:agro_app/Screens/Adding/menuagregar.dart';
 import 'package:agro_app/Screens/Home/Client/home.dart';
 import 'package:agro_app/Screens/Login/Client/login_screen.dart';
 import 'package:agro_app/Screens/Login/Store/login_screen.dart';
+import 'package:agro_app/Screens/Profile/Store/perfilv.dart';
 import 'package:agro_app/Screens/Welcome/welcome_screen.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Screens/Orders/Client/login_screen.dart';
+import 'Screens/Orders/Client/pedidos_c.dart';
 import 'Screens/Sign_up/Client/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up2.dart';
@@ -66,7 +71,12 @@ Widget _myListView(BuildContext context) {
     'Info Tienda',
     'Info Tienda 2',
     'Home',
-    'Pedidos Comprador'
+    'Pedidos Comprador',
+    'Perfil Vendedor',
+    'Menu Agregar',
+    'Agregar Frutas',
+    'Agregar Verduras',
+    'Agregar HyL'
   ];
   final pags = [
     const WelcomeScreen(),
@@ -76,8 +86,13 @@ Widget _myListView(BuildContext context) {
     const SignUpScreenV(),
     const SignUpScreen2V(),
     const SignUpScreen3V(),
-    const Home(),
+    Home(),
     const PedidosC(),
+    const PerfilV(),
+    const MenuAgregar(),
+    const AddFrutas(),
+    const AddVerduras(),
+    const AddHyL()
   ];
 
   return ListView.builder(

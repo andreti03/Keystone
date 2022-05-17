@@ -16,36 +16,6 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                  },
-                  child: const Text(
-                    "Freshop",
-
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: kPrimaryColor, //font color
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-
-                GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: const Icon(
-                    CupertinoIcons.info,
-                    color: kPrimaryColor,
-                  ),
-                )
-              ],
-            ),
-          ),
 
           SizedBox(
             height: size.height * 0.05,

@@ -1,13 +1,32 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
+import 'package:agro_app/Screens/Orders/Client/pedidos_c.dart';
+import 'package:agro_app/Screens/Profile/Store/perfilv.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'Components/body.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<Home>  {
+  int _currentPage = 0;
+
+  final _pages = [
+    Body(),
+    const PedidosC(),
+    const PedidosC(),
+    const PerfilV()
+  ];
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Freshop',
@@ -23,17 +42,37 @@ class Home extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             onPressed: () {}, 
-            icon: Icon(
-              Icons.shopping_basket,
-              color: kPrimaryColor,
-              size: size.height * 0.04,
-            ),
+            icon: SvgPicture.asset('assets/Icons/cart.svg'),
           ),
           SizedBox(width: size.width * 0.04),
         ],
       ),
       backgroundColor: kWhiteColor,
-      body: Body(),
+      body: _pages[_currentPage],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          setState(() {
+            _currentPage = index;
+          });
+        },
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/Icons/product.svg'), 
+              label: 'Productos'),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/Icons/list.svg'), 
+              label: 'Ordenes'),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/Icons/favorite.svg'), 
+              label: 'Favoritos'),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/Icons/profile.svg'), 
+              label: 'Perfil')
+        ],
+        fixedColor: kPrimaryColor,
+        backgroundColor: kWhiteColor,
+      )
     );
   }
 }
