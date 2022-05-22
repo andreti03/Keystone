@@ -76,7 +76,7 @@ class Body extends StatelessWidget {
             },
           ),
           RoundedInput(
-            textController: emailController,
+            textController: passController,
             icon: Icons.lock,
             hintText: 'Contraseña',
             onChanged: (value) {
