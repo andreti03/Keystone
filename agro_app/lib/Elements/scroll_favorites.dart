@@ -1,10 +1,10 @@
-import 'package:agro_app/Elements/product_card.dart';
+import 'package:agro_app/Elements/favorites_card.dart';
 // ignore: unused_import
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 
-class ScrollProducts extends StatelessWidget {
-  const ScrollProducts({
+class ScrollFavorites extends StatelessWidget {
+  const ScrollFavorites({
     Key? key,
     required this.prodnames,
     required this.asimg,
@@ -20,12 +20,13 @@ class ScrollProducts extends StatelessWidget {
       child: Column(
         children: List.generate(
           prodnames.length,
-          (index) => ProductCard(
+          (index) => FavoriteCard(
               pname: prodnames[index],
               sname: 'Julian Castro',
               img: asimg[index],
               peso: 1,
-              price: 2600),
+              price: 2600,
+              star: true,),
         ),
       ),
     );
