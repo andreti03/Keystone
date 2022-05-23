@@ -59,16 +59,16 @@ class _HomePageState extends State<Home>  {
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/product.svg',), 
+              icon:_currentPage == 0 ? SvgPicture.asset('assets/Icons/product.svg', color: kPrimaryColor):SvgPicture.asset('assets/Icons/product.svg', color: kGrayColor,), 
               label: 'Productos'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/list.svg'), 
+              icon:_currentPage == 1 ? SvgPicture.asset('assets/Icons/list.svg', color: kPrimaryColor): SvgPicture.asset('assets/Icons/list.svg', color: kGrayColor), 
               label: 'Ordenes'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/favorite.svg'), 
+              icon:_currentPage == 2 ? SvgPicture.asset('assets/Icons/favorite.svg', color: kPrimaryColor): SvgPicture.asset('assets/Icons/favorite.svg', color: kGrayColor), 
               label: 'Favoritos'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/profile.svg'), 
+              icon:_currentPage == 3 ? SvgPicture.asset('assets/Icons/profile.svg', color: kPrimaryColor): SvgPicture.asset('assets/Icons/profile.svg', color: kGrayColor),
               label: 'Perfil')
         ],
         fixedColor: kPrimaryColor,
