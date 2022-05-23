@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 import 'package:postgres/postgres.dart';
 
 import 'Screens/Orders/Client/pedidos_c.dart';
+import 'Screens/Profile/Client/perfilc.dart';
 import 'Screens/Sign_up/Client/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up2.dart';
@@ -75,6 +76,7 @@ Widget _myListView(BuildContext context) {
     'Home',
     'Pedidos Comprador',
     'Perfil Vendedor',
+    'Perfil Comprador',
     'Menu Agregar',
     'Agregar Frutas',
     'Agregar Verduras',
@@ -91,6 +93,7 @@ Widget _myListView(BuildContext context) {
     Home(),
     const PedidosC(),
     const PerfilV(),
+    PerfilC(),
     const MenuAgregar(),
     const AddFrutas(),
     const AddVerduras(),

@@ -19,55 +19,56 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(height: size.height*0.05),
-          const Center(
-            child: Text(
-              'Perfil',
-              style: TextStyle(
-                color: kPrimaryColor,
-                fontSize: 25.0,
-                fontWeight: FontWeight.w600,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Center(
+              child: Text(
+                'Perfil',
+                style: TextStyle(
+                  color: kPrimaryColor,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          ScrollPhoto(listaA: asimg),
-          ProfileData(
-              size: size,
-              name: 'Julian Castro',
-              stars: 5.0,
-              city: 'Bogota D.C',
-              dept: 'Bogota D.C',
-              tel: '305-912-8646'),
-          Center(
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: size.height*0.05,),
-                RoundedButton(
-                    text: 'Editar Perfil',
-                    press: () {log('Edit');},
-                    color: kPrimarykColor,
-                    pd: 10.0,
-                ),
-                RoundedButton(
-                    text: 'Ayuda',
-                    press: () {log('Log Out');},
-                    color: kPrimarykColor,
-                    pd: 10.0,
-                ),
-                RoundedButton(
-                    text: 'Cerrar sesion',
-                    press: () {log('Log Out');},
-                    color: kPrimarykColor,
-                    pd: 10.0,
-                ),
-              ],
+            ScrollPhoto(listaA: asimg),
+            ProfileData(
+                size: size,
+                name: 'Julian Castro',
+                stars: 5.0,
+                city: 'Bogota D.C',
+                dept: 'Bogota D.C',
+                tel: '305-912-8646'),
+            Center(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: size.height*0.05,),
+                  RoundedButton(
+                      text: 'Editar Perfil',
+                      press: () {log('Edit');},
+                      color: kPrimarykColor,
+                      pd: 10.0,
+                  ),
+                  RoundedButton(
+                      text: 'Ayuda',
+                      press: () {log('Log Out');},
+                      color: kPrimarykColor,
+                      pd: 10.0,
+                  ),
+                  RoundedButton(
+                      text: 'Cerrar sesion',
+                      press: () {log('Log Out');},
+                      color: kPrimarykColor,
+                      pd: 10.0,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

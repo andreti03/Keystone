@@ -23,83 +23,93 @@ class Body extends StatelessWidget {
     String email = '';
     String password = '';
     return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              IconButton(
-                  onPressed:() {Get.back();}, icon: SvgPicture.asset('assets/Icons/Back.svg'))
-            ],
-          ),
-          const Text(
-            '¡Bienvenido',
-            style: TextStyle(
-              fontSize: 35.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
+      child: Expanded(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                IconButton(
+                    onPressed:() {Get.back();}, icon: SvgPicture.asset('assets/Icons/Back.svg'))
+              ],
             ),
-          ),
-          const Text(
-            'Vendedor!',
-            style: TextStyle(
-              fontSize: 35.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                children: [
+                  const Text(
+                    '¡Bienvenido',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  const Text(
+                    'Vendedor!',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.03),
+                  const Text(
+                    'Antes de cualquier',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  const Text(
+                    'cosa ¡Logeate!',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.10),
+                  RoundedInput(
+                    textController: emailController,
+                    icon: Icons.person_sharp,
+                    hintText: 'Correo',
+                    onChanged: (value) {
+                      email = value;
+                    },
+                  ),
+                  RoundedInput(
+                    textController: passController,
+                    icon: Icons.lock,
+                    hintText: 'Contraseña',
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    obText: true,
+                  ),
+                  SizedBox(height: size.height * 0.05),
+                  RoundedButton(
+                    text: 'Ingresar',
+                    press: () {
+                      log(password);
+                      log(email);
+                    },
+                    pd: 2,
+                  ),
+                  SizedBox(height: size.height * 0.05),
+                  AlrHavAcc(
+                    press: () {
+                        log('Registarse VENDEDOR');
+                        Get.off(() => const SignUpScreenV());
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: size.height * 0.03),
-          const Text(
-            'Antes de cualquier',
-            style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-            ),
-          ),
-          const Text(
-            'cosa ¡Logeate!',
-            style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-            ),
-          ),
-          SizedBox(height: size.height * 0.10),
-          RoundedInput(
-            textController: emailController,
-            icon: Icons.person_sharp,
-            hintText: 'Correo',
-            onChanged: (value) {
-              email = value;
-            },
-          ),
-          RoundedInput(
-            textController: emailController,
-            icon: Icons.lock,
-            hintText: 'Contraseña',
-            onChanged: (value) {
-              password = value;
-            },
-          ),
-          SizedBox(height: size.height * 0.05),
-          RoundedButton(
-            text: 'Ingresar',
-            press: () {
-              log(password);
-              log(email);
-            },
-            pd: 2,
-          ),
-          SizedBox(height: size.height * 0.05),
-          AlrHavAcc(
-            press: () {
-                log('Registarse VENDEDOR');
-                Get.off(() => const SignUpScreenV());
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

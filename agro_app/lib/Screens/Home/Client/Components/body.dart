@@ -34,33 +34,33 @@ class Body extends StatelessWidget {
     
     String sch = '';
 
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RoundedSearch(
-                textController: schController, 
-                hintText: 'Buscar', 
-                onChanged: (value) {
-                    sch = value;
-                  }
-                ),
-              IconButton(
-                onPressed: () {log(sch);}, 
-                icon: Icon( 
-                  Icons.search, 
-                  color: kPrimaryColor,
-                  size: size.height * 0.04,),
-                ),
-            ],
-          ),
-          ScrollMenu( listaC: categories, listaP: press,),
-          ScrollProducts(prodnames: prodnames, asimg: asimg)
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        ScrollMenu( listaC: categories, listaP: press,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RoundedSearch(
+              textController: schController,
+              hintText: 'Buscar',
+              onChanged: (value) {
+                  sch = value;
+                }
+              ),
+            IconButton(
+              onPressed: () {log(sch);},
+              icon: Icon(
+                Icons.search,
+                color: kPrimaryColor,
+                size: size.height * 0.04,),
+              ),
+          ],
+        ),
+        ScrollProducts(prodnames: prodnames, asimg: asimg)
+
+
+      ],
     );
   }
 }

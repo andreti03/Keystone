@@ -78,6 +78,7 @@ class Body extends StatelessWidget {
           RoundedInput(
             textController: passController,
             icon: Icons.lock,
+            obText: true,
             hintText: 'Contraseña',
             onChanged: (value) {
               password = value;

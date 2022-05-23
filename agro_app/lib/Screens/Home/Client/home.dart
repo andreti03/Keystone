@@ -51,28 +51,37 @@ class _HomePageState extends State<Home>  {
       backgroundColor: kWhiteColor,
       body: _pages[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+        //type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
             _currentPage = index;
+            print("@@@@@@@@");
+            print(index);
+            print(_currentPage);
+            print("@@@@@@@@");
           });
         },
-        items: <BottomNavigationBarItem>[
+        unselectedItemColor: kGrayColor,
+        selectedItemColor: kPrimaryColor,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/product.svg',), 
+              icon: Icon(Icons.back_hand),
+              activeIcon: Icon(Icons.back_hand, color: Colors.red,),
               label: 'Productos'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/list.svg'), 
+              icon: Icon(Icons.back_hand),
+              activeIcon: Icon(Icons.back_hand, color: Colors.red,),
               label: 'Ordenes'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/favorite.svg'), 
+              icon: SvgPicture.asset('assets/Icons/favorite.svg'),
               label: 'Favoritos'),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/Icons/profile.svg'), 
+              icon: SvgPicture.asset('assets/Icons/profile.svg'),
               label: 'Perfil')
         ],
-        fixedColor: kPrimaryColor,
-        backgroundColor: kWhiteColor,
+        //backgroundColor: kWhiteColor,
       )
     );
   }
