@@ -51,11 +51,11 @@ class ScrollPhoto extends StatelessWidget {
               ),
               child: CircleAvatar(
                 child: IconButton(
-                  icon: const Icon(Icons.add, color: kPrimaryColor),
+                  icon: const Icon(Icons.add_a_photo, color: kWhiteColor),
                   onPressed: () {log('Agregar');},
                   iconSize: 40.0,
                 ),
-                backgroundColor: kGrayColor,
+                backgroundColor: kPrimarykColor,
               ),
             ),
           )

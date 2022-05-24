@@ -11,10 +11,10 @@ class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
 
   final asimg = [
-    'assets/Images/dilema-papa.jpg',
-    'assets/Images/Aguacate.jpg',
-    'assets/Images/Huevo.jpg',
-    'assets/Images/Huevo.jpg',
+    'assets/Images/P1.jpg',
+    'assets/Images/P2.jpg',
+    'assets/Images/P3.jpg',
+    'assets/Images/P4.jpg',
   ];
 
   @override

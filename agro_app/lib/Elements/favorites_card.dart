@@ -25,7 +25,7 @@ class FavoriteCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     double data = size.height*0.0147;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: SizedBox(
         width: size.width*0.9,
         height: size.height*0.15,
@@ -36,7 +36,7 @@ class FavoriteCard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: SizedBox(
                   width: size.width*0.33,
                   height: size.height*0.11,
@@ -46,31 +46,37 @@ class FavoriteCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(pname,
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontSize: size.height*0.0195, 
+              SizedBox(
+                width: size.width*0.33,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(pname,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: kPrimaryColor,
+                        fontSize: 16, 
+                      ),
                     ),
-                  ),
-                  SizedBox(height: size.height*0.02),
-                  Text('\$$price cop $peso' 'Lb',
-                    style: TextStyle(
-                      color: kPrimaryLigthColor,
-                      fontSize: size.height*0.0195, 
+                    SizedBox(height: size.height*0.02),
+                    Text('\$$price cop $peso' 'Lb',
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: kPrimaryLigthColor,
+                        fontSize: 12, 
+                      ),
                     ),
-                  ),
-                  SizedBox(height: size.height*0.02),
-                  Text('Vendedor:  $sname ',
-                    style: TextStyle(
-                      color: kPrimaryLigthColor,
-                      fontSize: size.height*0.0147, 
+                    SizedBox(height: size.height*0.02),
+                    Text('Vendedor:  $sname ',
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: kPrimaryLigthColor,
+                        fontSize: 12, 
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               IconButton(
                 onPressed: () {
@@ -86,7 +92,8 @@ class FavoriteCard extends StatelessWidget {
             side: const BorderSide(
               color: kPrimaryDarkColor,
             ),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            primary: kPrimaryColor
           ),
         ),
       ),

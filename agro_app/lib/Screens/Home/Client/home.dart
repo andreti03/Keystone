@@ -1,14 +1,13 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
 import 'package:agro_app/Screens/Favorites/Client/favorites.dart';
-import 'package:agro_app/Screens/Home/Client/Components/body2.dart';
 import 'package:agro_app/Screens/Orders/Client/pedidos_c.dart';
+import 'package:agro_app/Screens/Products/Client/products.dart';
 import 'package:agro_app/Screens/Profile/Client/perfilc.dart';
 import 'package:agro_app/constants.dart';
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// ignore: unused_import
-import 'Components/body.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -18,9 +17,10 @@ class Home extends StatefulWidget {
 
 class _HomePageState extends State<Home>  {
   int _currentPage = 0;
+  int items = 0;
 
   final _pages = [
-    const Body2(),
+    const Products(),
     const PedidosC(),
     Favorites(),
     PerfilC()
@@ -43,9 +43,24 @@ class _HomePageState extends State<Home>  {
         automaticallyImplyLeading: false,
         elevation: 0,
         actions: <Widget>[
-          IconButton(
-            onPressed: () {}, 
-            icon: SvgPicture.asset('assets/Icons/cart.svg'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Badge(
+              child: IconButton(
+                splashColor: kPrimarykColor,
+                padding: const EdgeInsets.all(3.0),
+                onPressed: () {}, 
+                icon: SvgPicture.asset('assets/Icons/cart.svg'),
+              ),
+              badgeContent: Text("$items",
+                style: const TextStyle(
+                color: kWhiteColor, 
+                fontSize: 16
+                ),
+              ),
+              badgeColor: kPrimaryDarkColor,
+              position: BadgePosition.bottomEnd(),
+            ),
           ),
           SizedBox(width: size.width * 0.04),
         ],

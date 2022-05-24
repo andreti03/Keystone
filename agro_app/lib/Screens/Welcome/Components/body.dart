@@ -25,7 +25,15 @@ class Body extends StatelessWidget {
             ),
           ),
           const Text(
-            '¿Con qué perfil quieres ingresar?',
+            '¿Con qué perfil',
+            style: TextStyle(
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          const Text(
+            ' quieres ingresar?',
             style: TextStyle(
               fontSize: 25.0,
               fontWeight: FontWeight.bold,
@@ -40,7 +48,7 @@ class Body extends StatelessWidget {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      Get.off(() => const LoginScreenV());
+                      Get.to(() => const LoginScreenV());
                     },
                     child: CircleAvatar(
                       child: Image.asset('assets/Images/vend.png',
@@ -64,7 +72,7 @@ class Body extends StatelessWidget {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      Get.off(() => const LoginScreenC());
+                      Get.to(() => const LoginScreenC());
                     },
                     child: CircleAvatar(
                       child: Image.asset('assets/Images/vend.png',

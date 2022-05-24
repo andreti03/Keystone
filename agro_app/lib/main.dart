@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
       ),
-      home: const ViewsScreens(),
+      home: const WelcomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
