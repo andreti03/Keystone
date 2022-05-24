@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
 import 'background.dart';
+import 'package:postgres/postgres.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
@@ -93,7 +94,14 @@ class Body extends StatelessWidget {
               press: () {
                 log(password);
                 log(email);
-                Get.off(Home());
+                iniciar_sesion(email,password).then((news) {
+                  if(news[0][0] == true){
+                    Get.off(Home());
+                  }
+                  else{
+                    log("Error");
+                  };
+                });
               },
               pd: 2,
             ),
@@ -108,5 +116,22 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future iniciar_sesion(email,password) async {
+    var connection = PostgreSQLConnection(
+        "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
+        5432,
+        "bff4spr7rvdolrbjs6ix",
+        username: "u1gnj6p7agoidy9oejy4",
+        password: "txhGYsajW3lbCBjMUCax");
+    await connection.open();
+    var res = await connection.query("SELECT count(*) from cliente");
+    var id = res.first.cast<int>()[0];
+    var valor = await connection.query(
+        "SELECT exists (SELECT 1 FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1);",
+        substitutionValues: {"cor":email,"pas":password
+        });
+    await connection.close();
+    return valor;
   }
 }
