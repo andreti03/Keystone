@@ -1,8 +1,6 @@
 import 'package:agro_app/Elements/pedido_widget.dart';
 import 'package:agro_app/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
 
@@ -23,7 +21,7 @@ class Body extends StatelessWidget {
             height: size.height * 0.05,
           ),
 
-          Center(
+          const Center(
             child: Text(
               "Tus Pedidos",
               style: TextStyle(
@@ -36,13 +34,14 @@ class Body extends StatelessWidget {
           SizedBox(
             height: size.height * 0.025,
           ),
-          Container(
-            color: Colors.grey,
-            height: 0.5,
+
+          SizedBox(
+            height: size.height * 0.025,
           ),
 
           Expanded(
             child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
               itemCount: 30,
               itemBuilder: (context, index) {
                 return Center(

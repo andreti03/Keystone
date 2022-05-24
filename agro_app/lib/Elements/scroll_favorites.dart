@@ -20,15 +20,13 @@ class ScrollFavorites extends StatelessWidget {
       child: Column(
         children: List.generate(
           prodnames.length,
-          (index) => Container(
-            child: FavoriteCard(
-                pname: prodnames[index],
-                sname: 'Julian Castro',
-                img: asimg[index],
-                peso: 1,
-                price: 2600,
-                star: true,),
-          ),
+          (index) => FavoriteCard(
+              pname: prodnames[index],
+              sname: 'Julian Castro',
+              img: asimg[index],
+              peso: 1,
+              price: 2600,
+              star: true,),
         ),
       ),
     );

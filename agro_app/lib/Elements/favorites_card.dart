@@ -77,10 +77,9 @@ class FavoriteCard extends StatelessWidget {
                   star = false;
                   log('Aja');
                 }, 
-                icon: Icon(star ? Icons.star:Icons.star_border , 
+                icon: star ? const Icon(Icons.star): const Icon(Icons.star_border), 
                 color: kPrimaryColor,
                 ),
-              ),
             ],
           ),
           style: OutlinedButton.styleFrom(

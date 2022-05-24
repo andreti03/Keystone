@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/scroll_photo.dart';
+import 'package:agro_app/Screens/Profile/Client/Components/edit_profile.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
@@ -13,7 +15,6 @@ class Body extends StatelessWidget {
     'assets/Images/Aguacate.jpg',
     'assets/Images/Huevo.jpg',
     'assets/Images/Huevo.jpg',
-
   ];
 
   @override
@@ -21,9 +22,11 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox( height: size.height * 0.05),
             const Center(
               child: Text(
                 'Perfil',
@@ -45,24 +48,32 @@ class Body extends StatelessWidget {
             Center(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: size.height*0.05,),
-                  RoundedButton(
-                      text: 'Editar Perfil',
-                      press: () {log('Edit');},
-                      color: kPrimarykColor,
-                      pd: 10.0,
+                  SizedBox(
+                    height: size.height * 0.05,
                   ),
                   RoundedButton(
-                      text: 'Ayuda',
-                      press: () {log('Log Out');},
-                      color: kPrimarykColor,
-                      pd: 10.0,
+                    text: 'Editar Perfil',
+                    press: () {
+                      Get.to(() => const EditProfile());
+                    },
+                    color: kPrimarykColor,
+                    pd: 10.0,
                   ),
                   RoundedButton(
-                      text: 'Cerrar sesion',
-                      press: () {log('Log Out');},
-                      color: kPrimarykColor,
-                      pd: 10.0,
+                    text: 'Ayuda',
+                    press: () {
+                      log('Log Out');
+                    },
+                    color: kPrimarykColor,
+                    pd: 10.0,
+                  ),
+                  RoundedButton(
+                    text: 'Cerrar sesion',
+                    press: () {
+                      log('Log Out');
+                    },
+                    color: kPrimarykColor,
+                    pd: 10.0,
                   ),
                 ],
               ),

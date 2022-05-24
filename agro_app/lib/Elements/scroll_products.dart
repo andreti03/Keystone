@@ -16,20 +16,15 @@ class ScrollProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: prodnames.length ,
-        itemBuilder: (BuildContext context, int index) {
-          return ProductCard(
+    return Column(
+        children: List.generate(
+          prodnames.length,
+          (index) =>  ProductCard(
               pname: prodnames[index],
               sname: 'Julian Castro',
               img: asimg[index],
               peso: 1,
-              price: 2600);
-
-        },
+              price: 2600)
       ),
     );
   }

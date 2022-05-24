@@ -36,7 +36,7 @@ class Body extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 children: [
                   const Text(
                     '¡Bienvenido',
