@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
+import 'dart:developer';
+
 import 'package:agro_app/Screens/Favorites/Client/favorites.dart';
+import 'package:agro_app/Screens/Home/Client/cart.dart';
 import 'package:agro_app/Screens/Orders/Client/pedidos_c.dart';
 import 'package:agro_app/Screens/Products/Client/products.dart';
 import 'package:agro_app/Screens/Profile/Client/perfilc.dart';
@@ -8,6 +11,7 @@ import 'package:agro_app/constants.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -49,7 +53,11 @@ class _HomePageState extends State<Home>  {
               child: IconButton(
                 splashColor: kPrimarykColor,
                 padding: const EdgeInsets.all(3.0),
-                onPressed: () {}, 
+                onPressed: () {
+                  Get.to(() => CarritoDeCompras());
+                  log('hola');
+                  
+                }, 
                 icon: SvgPicture.asset('assets/Icons/cart.svg'),
               ),
               badgeContent: Text("$items",
