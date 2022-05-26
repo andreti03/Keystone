@@ -10,6 +10,7 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
+// ignore: unused_import
 import '../../../Home/Store/home.dart';
 import 'background.dart';
 import 'package:postgres/postgres.dart';
@@ -134,6 +135,7 @@ class Body extends StatelessWidget {
     var res = await connection.query("SELECT count(*) from cliente");
     // ignore: unused_local_variable
     var id = res.first.cast<int>()[0];
+    // ignore: non_constant_identifier_names
     var info_usuario = await connection.query(
         "SELECT * FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1;",
         substitutionValues: {"cor":email,"pas":password

@@ -6,6 +6,7 @@ import 'package:agro_app/Screens/Profile/Client/Components/edit_profile.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// ignore: unused_import
 import 'package:agro_app/Screens/Login/Client/Components/body.dart';
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(datos_usuario);
+    log(datos_usuario);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(

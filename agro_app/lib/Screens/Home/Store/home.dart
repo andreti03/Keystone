@@ -1,17 +1,9 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
-import 'dart:developer';
 
-import 'package:agro_app/Screens/Favorites/Client/favorites.dart';
-import 'package:agro_app/Screens/Home/Client/cart.dart';
-import 'package:agro_app/Screens/Orders/Client/pedidos_c.dart';
-import 'package:agro_app/Screens/Products/Client/products.dart';
-import 'package:agro_app/Screens/Profile/Client/perfilc.dart';
 import 'package:agro_app/constants.dart';
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 import '../../Orders/Store/pedidos_s.dart';
 import '../../Profile/Store/perfilv.dart';
@@ -27,12 +19,13 @@ class _HomePageState extends State<HomeStore>  {
   int items = 0;
 
   final _pages = [
-    PedidosV(),
+    const PedidosV(),
     PerfilV(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     Size size = MediaQuery.of(context).size;
     
     return Scaffold(

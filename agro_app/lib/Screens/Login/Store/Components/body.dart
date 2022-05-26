@@ -10,11 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: unused_import
 import 'package:get/get.dart';
-<<<<<<< HEAD
 import 'package:postgres/postgres.dart';
-import 'background.dart';
-=======
->>>>>>> da06f83b1a1db530d68560b5a2ee5f4961e9ab64
 
 import '../../../Home/Store/home.dart';
 import 'background.dart';
@@ -101,7 +97,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: 'Ingresar',
               press: () {
-                print("Hola");
+                log("Hola");
                 Get.off(HomeStore());
                 log(password);
                 log(email);
