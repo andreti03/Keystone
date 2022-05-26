@@ -1,126 +1,88 @@
-import 'dart:developer';
-import 'package:agro_app/Screens/Login/Store/login_screen.dart';
-import 'package:agro_app/Screens/Sign_up/Store/sign_up3.dart';
-import 'package:agro_app/Elements/rounded_button.dart';
-import 'package:agro_app/Elements/rounded_input.dart';
-import 'package:agro_app/Elements/alr_hav_acc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:agro_app/Screens/Sign_up/Store/Components/info_store2.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'background.dart';
 
 class InfoStore1 extends StatelessWidget {
   InfoStore1({Key? key}) : super(key: key);
 
-  final stnameController = TextEditingController();
-  final deptController = TextEditingController();
-  final numbController = TextEditingController();
-  final horController = TextEditingController();
-  final muncController = TextEditingController();
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    String munc = '';
-    String stname = '';
-    String horario = '';
-    String dept = '';
-    String telnum = '';
-
     return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              IconButton(
-                  onPressed:() {Get.back();}, icon: SvgPicture.asset('assets/Icons/Back.svg'))
+        child: Expanded(
+      child: SafeArea(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 32),
+          child: Column(
+            children: [
+              Text(
+                'Selecciona el tipo de producto',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              Expanded(child: Container()),
+              GestureDetector(
+                onTap: () {
+                  Get.to(InfoStore2());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: kPrimaryDarkColor,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  height: 100,
+                  width: double.infinity,
+                  child: Center(
+                      child: Text("Frutas",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: kPrimaryDarkColor,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  height: 100,
+                  width: double.infinity,
+                  child: Center(
+                      child: Text("Verduras",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: kPrimaryDarkColor,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  height: 100,
+                  width: double.infinity,
+                  child: Center(
+                      child: Text("Huevo y Lacteos",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white))),
+                ),
+              ),
+              Expanded(child: Container()),
             ],
           ),
-          const Text(
-            'Información de',
-            style: TextStyle(
-              fontSize: 35.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-            ),
-          ),
-          const Text(
-            'tu negocio',
-            style: TextStyle(
-              fontSize: 35.0,
-              fontWeight: FontWeight.bold,
-              color: kWhiteColor,
-            ),
-          ),
-          SizedBox(height: size.height * 0.05),
-          RoundedInput(
-            textController: stnameController,
-            icon: Icons.store,
-            hintText: 'Nombre de la tienda',
-            onChanged: (value) {
-              stname = value;
-            },
-          ),
-          RoundedInput(
-            textController: horController,
-            icon: Icons.access_time_filled,
-            hintText: 'Horario de atencion',
-            onChanged: (value) {
-              horario = value;
-            },
-          ),
-          RoundedInput(
-            textController: numbController,
-            icon: Icons.phone_iphone_outlined,
-            hintText: 'Telefono',
-            onChanged: (value) {
-              telnum = value;
-            },
-          ),
-          RoundedInput(
-            textController: deptController,
-            icon: Icons.location_on,
-            hintText: 'Departamento',
-            onChanged: (value) {
-              dept = value;
-            },
-          ),
-          RoundedInput(
-            textController: muncController,
-            icon: Icons.location_on,
-            hintText: 'Municipio',
-            onChanged: (value) {
-              munc = value;
-            },
-          ),
-          SizedBox(height: size.height * 0.05),
-          RoundedButton(
-            text: 'Continuar',
-            press: () {
-              log(stname);
-              log(horario);
-              log(dept);
-              log(telnum);
-              log(munc);
-              Get.to(() => const SignUpScreen3V());
-            },
-            pd: 2,
-          ),
-          SizedBox(height: size.height * 0.05),
-          AlrHavAcc(
-            login: false,
-            press: () {
-              log('Registarse VENDEDOR');
-              Get.off(() => const LoginScreenV());
-            },
-          ),
-        ],
+        ),
       ),
-    );
+    ));
   }
 }

@@ -12,6 +12,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:postgres/postgres.dart';
 
+import '../../../../main.dart';
 import '../../../Home/Store/home.dart';
 import 'background.dart';
 
@@ -68,7 +69,7 @@ class Body extends StatelessWidget {
               ),
             ),
             const Text(
-              'cosa ¡Logueate!',
+              'cosa ¡Logeate!',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -97,10 +98,22 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: 'Ingresar',
               press: () {
+<<<<<<< HEAD
                 log("Hola");
                 Get.off(HomeStore());
+=======
+>>>>>>> 1e885a18f20ac59482ec80cd98ae866b9e1f653f
                 log(password);
                 log(email);
+                iniciar_sesion(email, password).then((news) {
+                  if (news[0][0][0] == true) {
+                    datos_usuario = (news[1][0]);
+                    Get.off(HomeStore());
+                  } else {
+                    log("Error");
+                  }
+                  ;
+                });
               },
               pd: 2,
             ),
@@ -116,8 +129,8 @@ class Body extends StatelessWidget {
       ),
     );
   }
-  // ignore: non_constant_identifier_names
-  Future iniciar_sesion(email,password) async {
+
+  Future iniciar_sesion(email, password) async {
     var connection = PostgreSQLConnection(
         "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
         5432,
@@ -125,14 +138,15 @@ class Body extends StatelessWidget {
         username: "u1gnj6p7agoidy9oejy4",
         password: "txhGYsajW3lbCBjMUCax");
     await connection.open();
-    var res = await connection.query("SELECT count(*) from cliente");
-    // ignore: unused_local_variable
+    var res = await connection.query("SELECT count(*) from vendedor");
     var id = res.first.cast<int>()[0];
+    var info_usuario = await connection.query(
+        "SELECT * FROM vendedor WHERE correo = @cor and contrasena = @pas LIMIT 1;",
+        substitutionValues: {"cor": email, "pas": password});
     var valor = await connection.query(
-        "SELECT exists (SELECT 1 FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1);",
-        substitutionValues: {"cor":email,"pas":password
-        });
+        "SELECT exists (SELECT 1 FROM vendedor WHERE correo = @cor and contrasena = @pas LIMIT 1);",
+        substitutionValues: {"cor": email, "pas": password});
     await connection.close();
-    return valor;
+    return [valor, info_usuario];
   }
 }
