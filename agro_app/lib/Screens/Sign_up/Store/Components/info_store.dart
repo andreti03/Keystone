@@ -1,88 +1,92 @@
-import 'package:agro_app/Screens/Sign_up/Store/Components/info_store2.dart';
-import 'package:agro_app/constants.dart';
+import 'package:agro_app/Screens/Login/Client/Components/background.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'background.dart';
+import '../../../../Elements/rounded_button.dart';
+import '../../../../Elements/rounded_input.dart';
+import '../../../../constants.dart';
 
 class InfoStore1 extends StatelessWidget {
   InfoStore1({Key? key}) : super(key: key);
+  TextEditingController productName = TextEditingController();
+  TextEditingController productPrice = TextEditingController();
+  TextEditingController productQuantity = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    return Background(
-        child: Expanded(
-      child: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 32),
+    return Scaffold(
+      body: Background(
+        child: SafeArea(
           child: Column(
             children: [
-              Text(
-                'Selecciona el tipo de producto',
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Ultimos detalles',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Nombre del producto',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productPrice,
+                      icon: Icons.add),
+                  Text(
+                    'precio',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productName,
+                      icon: Icons.add),
+                  Text(
+                    'Cantidad',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productQuantity,
+                      icon: Icons.add),
+                ],
               ),
-              Expanded(child: Container()),
-              GestureDetector(
-                onTap: () {
-                  Get.to(InfoStore2());
+              RoundedButton(
+                text: 'Continuar',
+                press: () {
+
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: Center(
-                      child: Text("Frutas",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
+                pd: 2,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: Center(
-                      child: Text("Verduras",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: Center(
-                      child: Text("Huevo y Lacteos",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
-              ),
-              Expanded(child: Container()),
+
             ],
           ),
         ),
       ),
-    ));
+    );
   }
 }
