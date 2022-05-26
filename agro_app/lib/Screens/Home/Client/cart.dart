@@ -13,16 +13,20 @@ class CarritoDeCompras extends StatelessWidget {
     'Papa Pastusa',
     'Aguacate',
     'Huevos',
-    'Huevos',
-    'Huevos',
-    'Huevos'
+  ];
+  final prodval = [
+    "3000",
+    "2000",
+    "13500",
+  ];
+  final cant = [
+    "7",
+    "1",
+    "3",
   ];
   final asimg = [
     'assets/Images/dilema-papa.jpg',
     'assets/Images/Aguacate.jpg',
-    'assets/Images/Huevo.jpg',
-    'assets/Images/Huevo.jpg',
-    'assets/Images/Huevo.jpg',
     'assets/Images/Huevo.jpg',
   ];
 
@@ -74,7 +78,7 @@ class CarritoDeCompras extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 32.0, right: 32, top: 16),
                   child: ListView.builder(
-                    itemCount: 50,
+                    itemCount: 3,
                     itemBuilder: (context, index) {
                       return Container(
                         height: 100,
@@ -90,7 +94,7 @@ class CarritoDeCompras extends StatelessWidget {
                               Flexible(
                                 flex: 1,
                                 child: Image.asset(
-                                  asimg[0],
+                                  asimg[index],
                                   fit: BoxFit.fitHeight,
                                 ),
                               ),
@@ -102,12 +106,12 @@ class CarritoDeCompras extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      const Text("Product Name",
+                                      Text( prodnames[index],
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 2),
                                       // ignore: avoid_unnecessary_containers
                                       Container(
-                                        child: const Text("\$Price"),
+                                        child: Text(prodval[index]),
                                       )
                                     ],
                                   ),
@@ -125,7 +129,7 @@ class CarritoDeCompras extends StatelessWidget {
                                         },
                                         child:
                                             const Icon(CupertinoIcons.minus_circle)),
-                                    const Text("1"),
+                                    Text(cant[index]),
                                     GestureDetector(
                                         onTap: () {
                                           log("More");
@@ -153,7 +157,7 @@ class CarritoDeCompras extends StatelessWidget {
                         const Expanded(
                           child: Center(
                               child: Text(
-                            "Total: \$2389",
+                            "Total: \$63000",
                             style: TextStyle(
                                 color: kWhiteColor,
                                 fontWeight: FontWeight.bold),
@@ -165,7 +169,7 @@ class CarritoDeCompras extends StatelessWidget {
                             child: Container(
                               child: const Center(
                                   child: Text(
-                                "Clean Cart",
+                                "Limpiar Carrito",
                                 style: TextStyle(
                                     color: kWhiteColor,
                                     fontWeight: FontWeight.bold),
@@ -187,7 +191,7 @@ class CarritoDeCompras extends StatelessWidget {
                       child: Container(
                         child: const Center(
                             child: Text(
-                          "CheckOut",
+                          "Finalizar",
                           style: TextStyle(
                               color: kWhiteColor, fontWeight: FontWeight.bold),
                         )),

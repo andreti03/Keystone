@@ -21,7 +21,7 @@ class Home extends StatefulWidget {
 
 class _HomePageState extends State<Home>  {
   int _currentPage = 0;
-  int items = 0;
+  int items = 11;
 
   final _pages = [
     const Products(),

@@ -10,6 +10,10 @@ class Body extends StatelessWidget {
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
+  final states= ['En Camino','Entregado', 'Entregado', 'Cancelado', 'Entregado'];
+  final idsss=['230326721430','233920221430','230320581430','230320035430','2305632221430'];
+  final colores=[kPrimaryColor,kPrimaryDarkColor,kPrimaryDarkColor,kRedColor,kPrimaryDarkColor];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,15 +46,16 @@ class Body extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               physics: const BouncingScrollPhysics(),
-              itemCount: 30,
+              itemCount: 5,
               itemBuilder: (context, index) {
                 return Center(
                     child: PedidoButton(
-                      estado: 'En camino',
+                      estado: states[index],
                       press: () {
                       },
-                      pedidoID: '230320221430',
+                      pedidoID: idsss[index],
                       direccion: 'Calle 72 # 26-64',
+                      color: colores[index],
                     ));
               }, separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(height: 10,);

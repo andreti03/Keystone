@@ -6,13 +6,10 @@ class Body extends StatelessWidget {
   // ignore: prefer_const_constructors_in_immutables
   Body({Key? key}) : super(key: key);
 
-  final prodnames = ['Papa Pastusa','Aguacate','Huevos','Huevos','Huevos','Huevos'];
+  final prodnames = ['Papa Pastusa','Aguacate','Huevos'];
   final asimg = [
     'assets/Images/dilema-papa.jpg',
     'assets/Images/Aguacate.jpg',
-    'assets/Images/Huevo.jpg',
-    'assets/Images/Huevo.jpg',
-    'assets/Images/Huevo.jpg',
     'assets/Images/Huevo.jpg',
     ];
   @override

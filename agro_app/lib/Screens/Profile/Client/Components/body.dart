@@ -9,19 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // ignore: unused_import
 import 'package:agro_app/Screens/Login/Client/Components/body.dart';
+
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
 
   final asimg = [
     'assets/Images/P1.jpg',
     'assets/Images/P2.jpg',
-    'assets/Images/P3.jpg',
-    'assets/Images/P4.jpg',
   ];
 
   @override
   Widget build(BuildContext context) {
-    log(datos_usuario);
+    //log(datos_usuario);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(

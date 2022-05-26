@@ -6,20 +6,19 @@ import 'package:get/get.dart';
 import 'background.dart';
 
 class InfoStore1 extends StatelessWidget {
-  InfoStore1({Key? key}) : super(key: key);
+  const InfoStore1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
     return Background(
         child: Expanded(
       child: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 32),
+          margin: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Selecciona el tipo de producto',
                 style:
                     TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -30,14 +29,14 @@ class InfoStore1 extends StatelessWidget {
                   Get.to(InfoStore2());
                 },
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: kPrimaryDarkColor,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   height: 100,
                   width: double.infinity,
-                  child: Center(
+                  child: const Center(
                       child: Text("Frutas",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -47,14 +46,14 @@ class InfoStore1 extends StatelessWidget {
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: kPrimaryDarkColor,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   height: 100,
                   width: double.infinity,
-                  child: Center(
+                  child: const Center(
                       child: Text("Verduras",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -64,14 +63,14 @@ class InfoStore1 extends StatelessWidget {
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: kPrimaryDarkColor,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   height: 100,
                   width: double.infinity,
-                  child: Center(
+                  child: const Center(
                       child: Text("Huevo y Lacteos",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
