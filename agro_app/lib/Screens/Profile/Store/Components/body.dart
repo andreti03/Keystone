@@ -7,7 +7,8 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // ignore: unused_import
-import 'package:agro_app/Screens/Login/Client/Components/body.dart';
+import 'package:agro_app/Screens/Login/Store/Components/body.dart';
+
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
 
@@ -20,15 +21,15 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(datos_usuario);
     Size size = MediaQuery.of(context).size;
+    print(datos_usuario);
     return SafeArea(
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox( height: size.height * 0.05),
+            SizedBox(height: size.height * 0.05),
             const Center(
               child: Text(
                 'Perfil',
@@ -44,9 +45,9 @@ class Body extends StatelessWidget {
                 size: size,
                 name: datos_usuario[1] + " " + datos_usuario[2],
                 stars: 5.0,
-                city: datos_usuario[7],
-                dept: datos_usuario[6],
-                tel: datos_usuario[4]),
+                city: datos_usuario[6],
+                dept: datos_usuario[5],
+                tel: '3002645684'),
             Center(
               child: Column(
                 children: <Widget>[
