@@ -8,6 +8,7 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
+import 'package:postgres/postgres.dart';
 import 'background.dart';
 
 
@@ -106,5 +107,24 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+  // ignore: non_constant_identifier_names
+  Future iniciar_sesion(email,password) async {
+    var connection = PostgreSQLConnection(
+        "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
+        5432,
+        "bff4spr7rvdolrbjs6ix",
+        username: "u1gnj6p7agoidy9oejy4",
+        password: "txhGYsajW3lbCBjMUCax");
+    await connection.open();
+    var res = await connection.query("SELECT count(*) from cliente");
+    // ignore: unused_local_variable
+    var id = res.first.cast<int>()[0];
+    var valor = await connection.query(
+        "SELECT exists (SELECT 1 FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1);",
+        substitutionValues: {"cor":email,"pas":password
+        });
+    await connection.close();
+    return valor;
   }
 }
