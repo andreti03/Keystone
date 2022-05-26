@@ -118,6 +118,7 @@ class Body extends StatelessWidget {
               log(apellido);
               log(bdate);
               log(telnum);
+              subir_datos(nombre, apellido, bdate, telnum,email,password);
               Get.to(() => const SignUpScreen2V());
             },
             pd: 2,
@@ -133,5 +134,22 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+  }
+    Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
+    var connection = PostgreSQLConnection(
+        "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
+        5432,
+        "bff4spr7rvdolrbjs6ix",
+        username: "u1gnj6p7agoidy9oejy4",
+        password: "txhGYsajW3lbCBjMUCax");
+    await connection.open();
+    var res = await connection.query("SELECT count(*) from vendedor");
+    var id = res.first.cast<int>()[0];
+    await connection.query(
+        "insert into vendedor values (@id, @nom, @ape, @ced, @fec, @dep, @ciu, @cor, @pas)",
+        substitutionValues: {"id":id+1, "nom":nombre, "ape":apellido, "ced":123,
+          "fec":bdate, "dep":"departamento", "ciu":"ciudad", "cor":email, "pas":password
+        });
+    await connection.close();
   }
 }
