@@ -67,7 +67,7 @@ class Body extends StatelessWidget {
               ),
             ),
             const Text(
-              'cosa ¡Logeate!',
+              'cosa ¡Logueate!',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
