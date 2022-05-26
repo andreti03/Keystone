@@ -1,87 +1,94 @@
-import 'package:agro_app/Screens/Sign_up/Store/Components/info_store2.dart';
-import 'package:agro_app/constants.dart';
+import 'package:agro_app/Screens/Login/Client/Components/background.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'background.dart';
+import '../../../../Elements/rounded_button.dart';
+import '../../../../Elements/rounded_input.dart';
+import '../../../../constants.dart';
 
+// ignore: must_be_immutable
 class InfoStore1 extends StatelessWidget {
-  const InfoStore1({Key? key}) : super(key: key);
+  InfoStore1({Key? key}) : super(key: key);
+  TextEditingController productName = TextEditingController();
+  TextEditingController productPrice = TextEditingController();
+  TextEditingController productQuantity = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
-    return Background(
-        child: Expanded(
-      child: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 32),
+    // ignore: unused_local_variable
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Background(
+        child: SafeArea(
           child: Column(
             children: [
-              const Text(
-                'Selecciona el tipo de producto',
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Ultimos detalles',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    'Nombre del producto',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productPrice,
+                      icon: Icons.add),
+                  const Text(
+                    'precio',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productName,
+                      icon: Icons.add),
+                  const Text(
+                    'Cantidad',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                  RoundedInput(
+                      hintText: "",
+                      onChanged: (String value) {},
+                      textController: productQuantity,
+                      icon: Icons.add),
+                ],
               ),
-              Expanded(child: Container()),
-              GestureDetector(
-                onTap: () {
-                  Get.to(InfoStore2());
+              RoundedButton(
+                text: 'Continuar',
+                press: () {
+
                 },
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: const Center(
-                      child: Text("Frutas",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
+                pd: 2,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: const Center(
-                      child: Text("Verduras",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: kPrimaryDarkColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  height: 100,
-                  width: double.infinity,
-                  child: const Center(
-                      child: Text("Huevo y Lacteos",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white))),
-                ),
-              ),
-              Expanded(child: Container()),
+
             ],
           ),
         ),
       ),
-    ));
+    );
   }
 }
