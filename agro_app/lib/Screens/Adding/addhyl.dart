@@ -254,7 +254,7 @@ class AddHyL extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => const PerfilV(),
+                  pageBuilder: () => PerfilV(),
                 ),
               ],
               child: Stack(

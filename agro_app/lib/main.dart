@@ -91,7 +91,7 @@ Widget _myListView(BuildContext context) {
     const SignUpScreen3V(),
     Home(),
     const PedidosC(),
-    const PerfilV(),
+    PerfilV(),
     PerfilC(),
     const MenuAgregar(),
     const AddFrutas(),

@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:agro_app/Screens/Profile/Store/perfilv.dart';
 import 'package:adobe_xd/page_link.dart';
+import '../Profile/Store/perfilv.dart';
 import 'menuagregar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -257,7 +257,7 @@ class AddFrutas extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => const PerfilV(),
+                  pageBuilder: () => PerfilV(),
                 ),
               ],
               child: Stack(
