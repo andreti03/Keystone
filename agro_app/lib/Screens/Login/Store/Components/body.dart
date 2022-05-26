@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unused_local_variable
 
 import 'dart:developer';
 
@@ -109,7 +109,7 @@ class Body extends StatelessWidget {
                   } else {
                     log("Error");
                   }
-                  ;
+                  
                 });
               },
               pd: 2,
