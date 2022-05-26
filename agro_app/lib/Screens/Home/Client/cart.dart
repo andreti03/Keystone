@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:agro_app/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +52,7 @@ class CarritoDeCompras extends StatelessWidget {
                       size: 30,
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(right: 30.0),
                       child: Center(
@@ -119,17 +121,17 @@ class CarritoDeCompras extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                         onTap: () {
-                                          print("Less");
+                                          log("Less");
                                         },
                                         child:
-                                            Icon(CupertinoIcons.minus_circle)),
-                                    Text("1"),
+                                            const Icon(CupertinoIcons.minus_circle)),
+                                    const Text("1"),
                                     GestureDetector(
                                         onTap: () {
-                                          print("More");
+                                          log("More");
                                         },
                                         child:
-                                            Icon(CupertinoIcons.add_circled)),
+                                            const Icon(CupertinoIcons.add_circled)),
                                   ],
                                 ),
                               ),
@@ -148,8 +150,8 @@ class CarritoDeCompras extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Expanded(
-                          child: const Center(
+                        const Expanded(
+                          child: Center(
                               child: Text(
                             "Total: \$2389",
                             style: TextStyle(

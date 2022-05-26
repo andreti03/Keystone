@@ -6,268 +6,295 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'addfrutas.dart';
 import 'package:adobe_xd/page_link.dart';
-//import './MainVendedor4.dart';
-//import './MainVendedor5.dart';
 import 'package:agro_app/Screens/Profile/Store/perfilv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:agro_app/constants.dart';
 
 class MenuAgregar extends StatelessWidget {
   const MenuAgregar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed:() {
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const PerfilV()),
+              );
+              }, icon: SvgPicture.string(_svg_zjqvy)
+          //allowDrawingOutsideViewBox: true,
+        ),
+        centerTitle: true,
+        title: const Text('Freshop',
+          style: TextStyle(
+              color: kPrimaryColor,
+              fontSize: 45.0,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        backgroundColor: kWhiteColor,
+        automaticallyImplyLeading: false,
+        elevation: 0,
+      ),
       body: Stack(
         children: <Widget>[
-          Pinned.fromPins(
-            Pin(size: 112.0, end: 28.0),
-            Pin(size: 40.0, start: 12.0),
-            child: const Text(
-              'Freshop',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 30,
-                color: Color(0xff207b25),
-                fontWeight: FontWeight.w700,
-              ),
-              softWrap: false,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 73.0, end: 72.0),
-            Pin(size: 80.0, start: 104.0),
-            child: const Text(
-              'Selecciona el tipo de producto',
-              style: TextStyle(
-                fontFamily: 'Arial Rounded MT',
-                fontSize: 35,
-                color: Color(0xff000000),
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 35.0, end: 34.0),
-            Pin(size: 150.0, middle: 0.2964),
-            child: PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => const AddFrutas(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              // SizedBox(
+              //   child: const Text(
+              //     'Freshop',
+              //     style: TextStyle(
+              //       fontFamily: 'Segoe UI',
+              //       fontSize: 30,
+              //       color: Color(0xff207b25),
+              //       fontWeight: FontWeight.w700,
+              //     ),
+              //     softWrap: false,
+              //   ),
+              // ),
+              const SizedBox(
+                // Pin(start: 73.0, end: 72.0),
+                // Pin(size: 80.0, start: 104.0),
+                child: Text(
+                  'Selecciona el tipo de producto',
+                  style: TextStyle(
+                    fontFamily: 'Arial Rounded MT',
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-              ],
-              child: Stack(
-                children: <Widget>[
-                  Stack(
+              ),
+              SizedBox(
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                      pageBuilder: () => const AddFrutas(),
+                    ),
+                  ],
+                  child: Stack(
                     children: <Widget>[
                       Stack(
                         children: <Widget>[
-                          Container(
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(''),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            margin:
+                          Stack(
+                            children: <Widget>[
+                              Container(
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(''),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                margin:
                                 const EdgeInsets.fromLTRB(11.0, 19.0, 1.0, 40.0),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0xff207b25),
-                              border: Border.all(
-                                  width: 1.0, color: const Color(0xff707070)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment(0.0, -1.0),
-                            end: Alignment(0.0, 1.0),
-                            colors: [
-                              Color(0x80207b25),
-                              Color(0x80103e13)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                          border: Border.all(
-                              width: 1.0, color: const Color(0xff707070)),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Pinned.fromPins(
-                    Pin(start: 0.0, end: 0.0),
-                    Pin(size: 38.0, middle: 0.4732),
-                    child: const SingleChildScrollView(
-                      primary: false,
-                      child: Text(
-                        'FRUTAS',
-                        style: TextStyle(
-                          fontFamily: 'Arial Rounded MT',
-                          fontSize: 35,
-                          color: Color(0xffffffff),
-                          fontWeight: FontWeight.w700,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 35.0, end: 34.0),
-            Pin(size: 150.0, middle: 0.5606),
-            child: PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => const AddVerduras(),
-                ),
-              ],
-              child: Stack(
-                children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Stack(
-                        children: <Widget>[
-                          Container(
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(''),
-                                fit: BoxFit.cover,
                               ),
-                            ),
-                            margin:
-                                const EdgeInsets.fromLTRB(11.0, 19.0, 1.0, 40.0),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0xff207b25),
-                              border: Border.all(
-                                  width: 1.0, color: const Color(0xff707070)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment(0.0, -1.0),
-                            end: Alignment(0.0, 1.0),
-                            colors: [
-                              Color(0x80207b25),
-                              Color(0x80103e13)
-                            ],
-                            stops: [0.0, 1.0],
-                          ),
-                          border: Border.all(
-                              width: 1.0, color: const Color(0xff707070)),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Pinned.fromPins(
-                    Pin(start: 0.0, end: 0.0),
-                    Pin(size: 38.0, middle: 0.4732),
-                    child: const SingleChildScrollView(
-                      primary: false,
-                      child: Text(
-                        'VERDURAS',
-                        style: TextStyle(
-                          fontFamily: 'Arial Rounded MT',
-                          fontSize: 35,
-                          color: Color(0xffffffff),
-                          fontWeight: FontWeight.w700,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(start: 33.0, end: 33.0),
-            Pin(size: 140.0, end: 130.0),
-            child: PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => const AddHyL(),
-                ),
-              ],
-              child: Stack(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 3.0, 0.0),
-                    child: Stack(
-                      children: <Widget>[
-                        Stack(
-                          children: <Widget>[
-                            Container(
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(''),
-                                  fit: BoxFit.cover,
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff207b25),
+                                  border: Border.all(
+                                      width: 1.0, color: const Color(0xff707070)),
                                 ),
                               ),
-                              margin:
+                            ],
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                begin: Alignment(0.0, -1.0),
+                                end: Alignment(0.0, 1.0),
+                                colors: [
+                                  Color(0x80207b25),
+                                  Color(0x80103e13)
+                                ],
+                                stops: [0.0, 1.0],
+                              ),
+                              border: Border.all(
+                                  width: 1.0, color: const Color(0xff707070)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Pinned.fromPins(
+                        Pin(start: 0.0, end: 0.0),
+                        Pin(size: 38.0, middle: 0.4732),
+                        child: const SingleChildScrollView(
+                          primary: false,
+                          child: Text(
+                            'FRUTAS',
+                            style: TextStyle(
+                              fontFamily: 'Arial Rounded MT',
+                              fontSize: 35,
+                              color: Color(0xffffffff),
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                child: PageLink(
+                 links: [
+                   PageLinkInfo(
+                     transition: LinkTransition.Fade,
+                     ease: Curves.easeOut,
+                     duration: 0.3,
+                     pageBuilder: () => const AddVerduras(),
+                   ),
+                 ],
+                 child: Stack(
+                   children: <Widget>[
+                     Stack(
+                       children: <Widget>[
+                         Stack(
+                           children: <Widget>[
+                             Container(
+                               decoration: const BoxDecoration(
+                                 image: DecorationImage(
+                                   image: AssetImage(''),
+                                   fit: BoxFit.cover,
+                                 ),
+                               ),
+                               margin:
+                               const EdgeInsets.fromLTRB(11.0, 19.0, 1.0, 40.0),
+                             ),
+                             Container(
+                               decoration: BoxDecoration(
+                                 color: const Color(0xff207b25),
+                                 border: Border.all(
+                                     width: 1.0, color: const Color(0xff707070)),
+                               ),
+                             ),
+                           ],
+                         ),
+                         Container(
+                           decoration: BoxDecoration(
+                             gradient: const LinearGradient(
+                               begin: Alignment(0.0, -1.0),
+                               end: Alignment(0.0, 1.0),
+                               colors: [
+                                 Color(0x80207b25),
+                                 Color(0x80103e13)
+                               ],
+                               stops: [0.0, 1.0],
+                             ),
+                             border: Border.all(
+                                 width: 1.0, color: const Color(0xff707070)),
+                           ),
+                         ),
+                       ],
+                     ),
+                     Pinned.fromPins(
+                       Pin(start: 0.0, end: 0.0),
+                       Pin(size: 38.0, middle: 0.4732),
+                       child: const SingleChildScrollView(
+                         primary: false,
+                         child: Text(
+                           'VERDURAS',
+                           style: TextStyle(
+                             fontFamily: 'Arial Rounded MT',
+                             fontSize: 35,
+                             color: Color(0xffffffff),
+                             fontWeight: FontWeight.w700,
+                           ),
+                           textAlign: TextAlign.center,
+                         ),
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+               ),
+              SizedBox(
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                child: PageLink(
+                  links: [
+                    PageLinkInfo(
+                      transition: LinkTransition.Fade,
+                      ease: Curves.easeOut,
+                      duration: 0.3,
+                      pageBuilder: () => const AddHyL(),
+                    ),
+                  ],
+                  child: Stack(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 3.0, 0.0),
+                        child: Stack(
+                          children: <Widget>[
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(''),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  margin:
                                   const EdgeInsets.fromLTRB(0.0, 59.0, 12.0, 0.0),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff207b25),
+                                    border: Border.all(
+                                        width: 1.0, color: const Color(0xff707070)),
+                                  ),
+                                ),
+                              ],
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                color: const Color(0xff207b25),
+                                gradient: const LinearGradient(
+                                  begin: Alignment(0.0, -1.0),
+                                  end: Alignment(0.0, 1.0),
+                                  colors: [
+                                    Color(0x80207b25),
+                                    Color(0x80103e13)
+                                  ],
+                                  stops: [0.0, 1.0],
+                                ),
                                 border: Border.all(
                                     width: 1.0, color: const Color(0xff707070)),
                               ),
                             ),
                           ],
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              begin: Alignment(0.0, -1.0),
-                              end: Alignment(0.0, 1.0),
-                              colors: [
-                                Color(0x80207b25),
-                                Color(0x80103e13)
-                              ],
-                              stops: [0.0, 1.0],
-                            ),
-                            border: Border.all(
-                                width: 1.0, color: const Color(0xff707070)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(3.0, 44.0, 0.0, 34.0),
-                    child: SizedBox.expand(
-                        child: Text(
-                      'HUEVOS Y LÁCTEOS',
-                      style: TextStyle(
-                        fontFamily: 'Arial Rounded MT',
-                        fontSize: 35,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w700,
                       ),
-                      textAlign: TextAlign.center,
-                    )),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(3.0, 44.0, 0.0, 34.0),
+                        child: SizedBox.expand(
+                            child: Text(
+                              'HUEVOS Y LÁCTEOS',
+                              style: TextStyle(
+                                fontFamily: 'Arial Rounded MT',
+                                fontSize: 35,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.center,
+                            )),
+                      ),
+                    ],
                   ),
+<<<<<<< HEAD
+=======
                 ],
               ),
             ),
@@ -282,14 +309,10 @@ class MenuAgregar extends StatelessWidget {
                   ease: Curves.easeOut,
                   duration: 0.3,
                   pageBuilder: () => PerfilV(),
+>>>>>>> da06f83b1a1db530d68560b5a2ee5f4961e9ab64
                 ),
-              ],
-              child: SvgPicture.string(
-                _svg_zjqvy,
-                allowDrawingOutsideViewBox: true,
-                fit: BoxFit.fill,
               ),
-            ),
+            ]
           ),
         ],
       ),

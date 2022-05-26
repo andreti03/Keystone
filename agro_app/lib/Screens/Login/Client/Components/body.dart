@@ -64,7 +64,7 @@ class Body extends StatelessWidget {
               ),
             ),
             const Text(
-              'cosa ¡Logeate!',
+              'cosa ¡Logueate!',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class Body extends StatelessWidget {
                   }
                   else{
                     log("Error");
-                  };
+                  }
                 });
               },
               pd: 2,
@@ -122,6 +122,7 @@ class Body extends StatelessWidget {
       ),
     );
   }
+  // ignore: non_constant_identifier_names
   Future iniciar_sesion(email,password) async {
     var connection = PostgreSQLConnection(
         "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
@@ -131,6 +132,7 @@ class Body extends StatelessWidget {
         password: "txhGYsajW3lbCBjMUCax");
     await connection.open();
     var res = await connection.query("SELECT count(*) from cliente");
+    // ignore: unused_local_variable
     var id = res.first.cast<int>()[0];
     var info_usuario = await connection.query(
         "SELECT * FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1;",
