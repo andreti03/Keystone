@@ -1,15 +1,17 @@
 import 'dart:developer';
+
 import 'package:agro_app/Elements/alr_hav_acc.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/rounded_input.dart';
 import 'package:agro_app/Screens/Login/Store/login_screen.dart';
 import 'package:agro_app/Screens/Sign_up/Store/sign_up2.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'background.dart';
 import 'package:postgres/postgres.dart';
+
+import 'background.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
@@ -34,13 +36,16 @@ class Body extends StatelessWidget {
 
     return Background(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               IconButton(
-                  onPressed:() {Get.back();}, icon: SvgPicture.asset('assets/Icons/Back.svg'))
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: SvgPicture.asset('assets/Icons/Back.svg'))
             ],
           ),
           const Text(
@@ -109,7 +114,7 @@ class Body extends StatelessWidget {
             },
             obText: true,
           ),
-          SizedBox(height: size.height * 0.05),
+          SizedBox(height: size.height * 0.02),
           RoundedButton(
             text: 'Continuar',
             press: () {
@@ -119,7 +124,8 @@ class Body extends StatelessWidget {
               log(apellido);
               log(bdate);
               log(telnum);
-              subir_datos(nombre, apellido, bdate, telnum,email,password);
+              subir_datos(
+                  nombre, apellido, bdate, telnum, email, password);
               Get.to(() => const SignUpScreen2V());
             },
             pd: 2,
@@ -132,11 +138,13 @@ class Body extends StatelessWidget {
               Get.off(() => const LoginScreenV());
             },
           ),
+
         ],
       ),
     );
   }
-    Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
+
+  Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
     var connection = PostgreSQLConnection(
         "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
         5432,
@@ -148,8 +156,16 @@ class Body extends StatelessWidget {
     var id = res.first.cast<int>()[0];
     await connection.query(
         "insert into vendedor values (@id, @nom, @ape, @ced, @fec, @dep, @ciu, @cor, @pas)",
-        substitutionValues: {"id":id+1, "nom":nombre, "ape":apellido, "ced":123,
-          "fec":bdate, "dep":"departamento", "ciu":"ciudad", "cor":email, "pas":password
+        substitutionValues: {
+          "id": id + 1,
+          "nom": nombre,
+          "ape": apellido,
+          "ced": 123,
+          "fec": bdate,
+          "dep": "departamento",
+          "ciu": "ciudad",
+          "cor": email,
+          "pas": password
         });
     await connection.close();
   }

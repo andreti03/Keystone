@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^1.0.3
   adobe_xd: ^2.0.1
   badges: ^2.0.2
+  image_picker: ^0.8.5
 
 dev_dependencies:
   flutter_test:
