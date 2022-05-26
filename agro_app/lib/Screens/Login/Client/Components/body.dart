@@ -95,8 +95,12 @@ class Body extends StatelessWidget {
                 log(password);
                 log(email);
                 iniciar_sesion(email,password).then((news) {
-                  if(news[0][0] == true){
+                  if(news[0][0][0] == true){
+
+                    datos_usuario = (news[1][0]);
                     Get.off(Home());
+
+
                   }
                   else{
                     log("Error");
@@ -127,11 +131,15 @@ class Body extends StatelessWidget {
     await connection.open();
     var res = await connection.query("SELECT count(*) from cliente");
     var id = res.first.cast<int>()[0];
+    var info_usuario = await connection.query(
+        "SELECT * FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1;",
+        substitutionValues: {"cor":email,"pas":password
+        });
     var valor = await connection.query(
         "SELECT exists (SELECT 1 FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1);",
         substitutionValues: {"cor":email,"pas":password
         });
     await connection.close();
-    return valor;
+    return [valor,info_usuario];
   }
 }
