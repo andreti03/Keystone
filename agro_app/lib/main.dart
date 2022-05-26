@@ -1,7 +1,3 @@
-import 'package:agro_app/Screens/Adding/addfrutas.dart';
-import 'package:agro_app/Screens/Adding/addhyl.dart';
-import 'package:agro_app/Screens/Adding/addverduras.dart';
-import 'package:agro_app/Screens/Adding/menuagregar.dart';
 import 'package:agro_app/Screens/Home/Client/home.dart';
 import 'package:agro_app/Screens/Login/Client/login_screen.dart';
 import 'package:agro_app/Screens/Login/Store/login_screen.dart';
@@ -18,6 +14,8 @@ import 'Screens/Sign_up/Client/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up2.dart';
 import 'Screens/Sign_up/Store/sign_up3.dart';
+
+// ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
 var datos_usuario;
 void main() {
   runApp(const MyApp());
@@ -93,10 +91,6 @@ Widget _myListView(BuildContext context) {
     const PedidosC(),
     PerfilV(),
     PerfilC(),
-    const MenuAgregar(),
-    const AddFrutas(),
-    const AddVerduras(),
-    const AddHyL()
   ];
 
   return ListView.builder(
