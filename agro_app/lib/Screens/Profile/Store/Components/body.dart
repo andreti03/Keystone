@@ -3,7 +3,6 @@ import 'package:agro_app/main.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/scroll_photo.dart';
 import 'package:agro_app/Screens/Profile/Client/Components/edit_profile.dart';
-import 'package:agro_app/Screens/Welcome/welcome_screen.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -73,7 +72,6 @@ class Body extends StatelessWidget {
                     text: 'Cerrar sesion',
                     press: () {
                       log('Log Out');
-                      Get.off(const WelcomeScreen());
                     },
                     color: kPrimarykColor,
                     pd: 10.0,

@@ -1,5 +1,5 @@
 import 'dart:developer';
-
+import 'package:agro_app/main.dart';
 import 'package:agro_app/Elements/alr_hav_acc.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/rounded_input.dart';
@@ -10,6 +10,7 @@ import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
+import '../../../Home/Store/home.dart';
 import 'background.dart';
 import 'package:postgres/postgres.dart';
 
@@ -63,7 +64,7 @@ class Body extends StatelessWidget {
               ),
             ),
             const Text(
-              'cosa ¡Logeate!',
+              'cosa ¡Logueate!',
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -95,8 +96,12 @@ class Body extends StatelessWidget {
                 log(password);
                 log(email);
                 iniciar_sesion(email,password).then((news) {
-                  if(news[0][0] == true){
+                  if(news[0][0][0] == true){
+
+                    datos_usuario = (news[1][0]);
                     Get.off(Home());
+
+
                   }
                   else{
                     log("Error");
@@ -129,11 +134,15 @@ class Body extends StatelessWidget {
     var res = await connection.query("SELECT count(*) from cliente");
     // ignore: unused_local_variable
     var id = res.first.cast<int>()[0];
+    var info_usuario = await connection.query(
+        "SELECT * FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1;",
+        substitutionValues: {"cor":email,"pas":password
+        });
     var valor = await connection.query(
         "SELECT exists (SELECT 1 FROM cliente WHERE correo = @cor and contrasena = @pas LIMIT 1);",
         substitutionValues: {"cor":email,"pas":password
         });
     await connection.close();
-    return valor;
+    return [valor,info_usuario];
   }
 }

@@ -293,6 +293,23 @@ class MenuAgregar extends StatelessWidget {
                       ),
                     ],
                   ),
+<<<<<<< HEAD
+=======
+                ],
+              ),
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(size: 47.3, start: 25.0),
+            Pin(size: 47.3, start: 21.0),
+            child: PageLink(
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => PerfilV(),
+>>>>>>> da06f83b1a1db530d68560b5a2ee5f4961e9ab64
                 ),
               ),
             ]

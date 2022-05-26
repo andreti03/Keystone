@@ -18,7 +18,7 @@ import 'Screens/Sign_up/Client/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up.dart';
 import 'Screens/Sign_up/Store/sign_up2.dart';
 import 'Screens/Sign_up/Store/sign_up3.dart';
-
+var datos_usuario;
 void main() {
   runApp(const MyApp());
 }
@@ -91,7 +91,7 @@ Widget _myListView(BuildContext context) {
     const SignUpScreen3V(),
     Home(),
     const PedidosC(),
-    const PerfilV(),
+    PerfilV(),
     PerfilC(),
     const MenuAgregar(),
     const AddFrutas(),
