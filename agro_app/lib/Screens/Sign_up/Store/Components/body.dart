@@ -143,13 +143,8 @@ class Body extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
     // ignore: non_constant_identifier_names
     Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
-=======
-
-  Future subir_datos(nombre, apellido, bdate, telnum, email, password) async {
->>>>>>> 1e885a18f20ac59482ec80cd98ae866b9e1f653f
     var connection = PostgreSQLConnection(
         "bff4spr7rvdolrbjs6ix-postgresql.services.clever-cloud.com",
         5432,

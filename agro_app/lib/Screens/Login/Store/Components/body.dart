@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:developer';
 
 import 'package:agro_app/Elements/alr_hav_acc.dart';
@@ -98,11 +100,6 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: 'Ingresar',
               press: () {
-<<<<<<< HEAD
-                log("Hola");
-                Get.off(HomeStore());
-=======
->>>>>>> 1e885a18f20ac59482ec80cd98ae866b9e1f653f
                 log(password);
                 log(email);
                 iniciar_sesion(email, password).then((news) {
