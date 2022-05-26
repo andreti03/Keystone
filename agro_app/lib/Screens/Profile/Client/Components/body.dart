@@ -1,12 +1,12 @@
 import 'dart:developer';
-
+import 'package:agro_app/main.dart';
 import 'package:agro_app/Elements/rounded_button.dart';
 import 'package:agro_app/Elements/scroll_photo.dart';
 import 'package:agro_app/Screens/Profile/Client/Components/edit_profile.dart';
 import 'package:agro_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:agro_app/Screens/Login/Client/Components/body.dart';
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
 
@@ -19,6 +19,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(datos_usuario);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
@@ -40,11 +41,11 @@ class Body extends StatelessWidget {
             ScrollPhoto(listaA: asimg),
             ProfileData(
                 size: size,
-                name: 'Julian Castro',
+                name: datos_usuario[1] + " " + datos_usuario[2],
                 stars: 5.0,
-                city: 'Bogota D.C',
-                dept: 'Bogota D.C',
-                tel: '305-912-8646'),
+                city: datos_usuario[7],
+                dept: datos_usuario[6],
+                tel: datos_usuario[4]),
             Center(
               child: Column(
                 children: <Widget>[
